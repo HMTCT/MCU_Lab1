@@ -1,0 +1,7 @@
+#ignore all kind of files
+*
+#except php files
+!*.c
+!*.h
+!Ex1
+!Ex1/Core
