@@ -1,5 +1,7 @@
 #ignore all kind of files
 *
+.metadata
+
 #except files
 !*.c
 !*.h
