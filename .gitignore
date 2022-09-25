@@ -5,3 +5,6 @@
 !*.h
 !Ex1/Core/
 !*.gitignore
+
+# ...even if they are in subdirectories
+!*/
