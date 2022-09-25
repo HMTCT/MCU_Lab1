@@ -1,0 +1,7 @@
+#ignore all kind of files
+*
+#except files
+!*.c
+!*.h
+!Ex1/Core/*
+!*.gitignore
