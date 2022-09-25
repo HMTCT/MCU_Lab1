@@ -6,8 +6,7 @@
 
 !*.gitignore
 
-# ...even if they are in subdirectories
-!*/
+
 
 .metadata/
 */Drivers/*
