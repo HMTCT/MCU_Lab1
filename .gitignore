@@ -1,10 +1,7 @@
 #ignore all kind of files
 *
-.metadata
-
 #except files
-!*.c
-!*.h
+
 !Ex1/Core/
 !*.gitignore
 
