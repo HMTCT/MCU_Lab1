@@ -125,13 +125,13 @@ int main(void)
   {
 	  switch (counter) {
 		case 5:
-			state = 'g';
+			state = 'g'; //Green will turns on
 			break;
 		case 8:
-			state = 'y';
+			state = 'y'; //Yellow will turns on
 			break;
 		case 10:
-			state = 'r';
+			state = 'r'; //Red will turns on
 			counter = 0;
 			break;
 		default:
