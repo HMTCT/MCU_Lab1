@@ -3,5 +3,5 @@
 #except files
 !*.c
 !*.h
-!/Ex1/Core/*
+!Ex1
 !*.gitignore
