@@ -54,13 +54,6 @@ static void MX_GPIO_Init(void);
 
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
-
-/* USER CODE END 0 */
-
-/**
-  * @brief  The application entry point.
-  * @retval int
-  */
 void traffic_light(char state){
 	  if (state == 'g'){ 	//green turns on
 		  HAL_GPIO_WritePin ( LED_GREEN_GPIO_Port , LED_GREEN_Pin ,
@@ -119,6 +112,63 @@ void traffic_light1(char state){
 	  }
 }
 
+void display7SEG (int counter){
+	HAL_GPIO_WritePin(GPIOB, a_7SEG_Pin|b_7SEG_Pin|c_7SEG_Pin|d_7SEG_Pin
+		  			  		 |e_7SEG_Pin|f_7SEG_Pin|g_7SEG_Pin, 0);
+	switch (counter){
+		case 0:
+			HAL_GPIO_WritePin(GPIOB, g_7SEG_Pin, 1);
+	  		break;
+
+		case 1:
+			HAL_GPIO_WritePin(GPIOB, a_7SEG_Pin|d_7SEG_Pin|e_7SEG_Pin|f_7SEG_Pin|g_7SEG_Pin, 1);
+	  		break;
+
+		case 2:
+	  		HAL_GPIO_WritePin(GPIOB, c_7SEG_Pin|f_7SEG_Pin, 1);
+	  		break;
+
+	  	  case 3:
+	  		HAL_GPIO_WritePin(GPIOB, e_7SEG_Pin|f_7SEG_Pin, 1);
+	  		break;
+
+	  	  case 4:
+	  		HAL_GPIO_WritePin(GPIOB, a_7SEG_Pin|d_7SEG_Pin|e_7SEG_Pin, 1);
+	  		break;
+
+	  	  case 5:
+	  		HAL_GPIO_WritePin(GPIOB, b_7SEG_Pin|e_7SEG_Pin, 1);
+	  		break;
+
+	  	  case 6:
+	  		HAL_GPIO_WritePin(GPIOB, b_7SEG_Pin, 1);
+	  		break;
+
+	  	  case 7:
+	  		HAL_GPIO_WritePin(GPIOB, d_7SEG_Pin|e_7SEG_Pin|f_7SEG_Pin|g_7SEG_Pin, 1);
+	  		break;
+
+	  	  case 8:
+	  		break;
+
+	  	  case 9:
+	  		HAL_GPIO_WritePin(GPIOB, e_7SEG_Pin, 1);
+	  		break;
+
+	  	  default:
+	  		HAL_GPIO_WritePin(GPIOB, a_7SEG_Pin|b_7SEG_Pin|c_7SEG_Pin|d_7SEG_Pin
+	  			  		             |e_7SEG_Pin|f_7SEG_Pin|g_7SEG_Pin, 1);
+	  		break;
+	  }
+}
+
+
+/* USER CODE END 0 */
+
+/**
+  * @brief  The application entry point.
+  * @retval int
+  */
 int main(void)
 {
   /* USER CODE BEGIN 1 */
@@ -177,7 +227,7 @@ int main(void)
 	  }
 	  traffic_light(state);
 	  traffic_light1(state1);
-	  counter++;
+	  display7SEG (counter++) ;
 	  HAL_Delay(1000);
     /* USER CODE END WHILE */
 
@@ -232,10 +282,15 @@ static void MX_GPIO_Init(void)
 
   /* GPIO Ports Clock Enable */
   __HAL_RCC_GPIOA_CLK_ENABLE();
+  __HAL_RCC_GPIOB_CLK_ENABLE();
 
   /*Configure GPIO pin Output Level */
   HAL_GPIO_WritePin(GPIOA, LED_RED1_Pin|LED_YELLOW1_Pin|LED_GREEN1_Pin|LED_RED_Pin
                           |LED_YELLOW_Pin|LED_GREEN_Pin, GPIO_PIN_RESET);
+
+  /*Configure GPIO pin Output Level */
+  HAL_GPIO_WritePin(GPIOB, a_7SEG_Pin|b_7SEG_Pin|c_7SEG_Pin|d_7SEG_Pin
+                          |e_7SEG_Pin|f_7SEG_Pin|g_7SEG_Pin, GPIO_PIN_RESET);
 
   /*Configure GPIO pins : LED_RED1_Pin LED_YELLOW1_Pin LED_GREEN1_Pin LED_RED_Pin
                            LED_YELLOW_Pin LED_GREEN_Pin */
@@ -245,6 +300,15 @@ static void MX_GPIO_Init(void)
   GPIO_InitStruct.Pull = GPIO_NOPULL;
   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
   HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);
+
+  /*Configure GPIO pins : a_7SEG_Pin b_7SEG_Pin c_7SEG_Pin d_7SEG_Pin
+                           e_7SEG_Pin f_7SEG_Pin g_7SEG_Pin */
+  GPIO_InitStruct.Pin = a_7SEG_Pin|b_7SEG_Pin|c_7SEG_Pin|d_7SEG_Pin
+                          |e_7SEG_Pin|f_7SEG_Pin|g_7SEG_Pin;
+  GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
+  GPIO_InitStruct.Pull = GPIO_NOPULL;
+  GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
+  HAL_GPIO_Init(GPIOB, &GPIO_InitStruct);
 
 }
 
