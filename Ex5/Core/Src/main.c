@@ -283,11 +283,13 @@ int main(void)
 			countdown1 = 5;
 		}
 	}
+
 	traffic_light(state);
 	traffic_light1(state1);
+
 	display7SEG(countdown--);
-	display7SEG_1(countdown1--);
-		  HAL_Delay (1000) ;
+	display7SEG_1(countdown1--);	//This function is similar to the
+	HAL_Delay (1000) ;				//previous display7SEG function
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
