@@ -175,6 +175,7 @@ int main(void)
 			state1 = state1;
 			break;
 	  }
+
 	  traffic_light(state);
 	  traffic_light1(state1);
 	  counter++;
