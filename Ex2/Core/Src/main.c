@@ -138,6 +138,7 @@ int main(void)
 			state = state;
 			break;
 	}
+
 	traffic_light(state);
 	counter++;
 	HAL_Delay(1000);
