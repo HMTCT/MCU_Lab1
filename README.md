@@ -1,4 +1,6 @@
-# MCU_Lab1
+# HCMUT
+# MCU_CO3010
+# Lab1
 # Hoang Minh Triet
 # 2012262
 # L05
