@@ -113,7 +113,6 @@ int main(void)
   int fiveMin = 5;	//Count for 5 minutes
 
   int sec = 0;		//Init number of second led
-
   clearAllClock();
 
   while (1)
