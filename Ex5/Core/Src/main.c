@@ -250,46 +250,45 @@ int main(void)
   /* USER CODE BEGIN WHILE */
   char state = 'r';		//Init state for traffic light 1
   char state1 = 'g';	//Init state for traffic light 2
-  int countdown = 5;	//countdown value for traffic light 1
-  int countdown1 = 3;	//countdown value for traffic light 2
+  int countdown = 4;	//countdown value for traffic light 1
+  int countdown1 = 2;	//countdown value for traffic light 2
   while (1)
   {
 	if (countdown < 0){
 		if (state == 'r') {
 			state = 'g';
-			countdown = 3;
+			countdown = 2;
 		}
 		else if (state == 'g') {
 			state = 'y';
-			countdown = 2;
+			countdown = 1;
 		}
 		else if (state == 'y') {
 			state = 'r';
-			countdown = 5;
+			countdown = 4;
 		}
 	}
 
 	if (countdown1 < 0){
 		if (state1 == 'r') {
 			state1 = 'g';
-			countdown1 = 3;
+			countdown1 = 2;
 		}
 		else if (state1 == 'g') {
 			state1 = 'y';
-			countdown1 = 2;
+			countdown1 = 1;
 		}
 		else if (state1 == 'y') {
 			state1 = 'r';
-			countdown1 = 5;
+			countdown1 = 4;
 		}
 	}
-
 	traffic_light(state);
 	traffic_light1(state1);
-
 	display7SEG(countdown--);
 	display7SEG_1(countdown1--);	//This function is similar to the
-	HAL_Delay (1000) ;				//previous display7SEG function
+									//previous display7SEG function
+	HAL_Delay (1000) ;
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */

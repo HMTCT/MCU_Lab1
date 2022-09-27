@@ -62,14 +62,12 @@ void clearAllClock(){
 void setNumberOnClock(int num){
 	 if (num < 0 || num > 11) return;
 	 if (num == 0) num = 12;
-	 HAL_GPIO_WritePin ( GPIOA , GPIO_Pin(num) ,
-	 GPIO_PIN_RESET ) ;
+	 HAL_GPIO_WritePin ( GPIOA , GPIO_Pin(num) , 0) ;
 }
 void clearNumberOnClock(int num){
 	 if (num < 0 || num > 11) return;
 	 if (num == 0) num = 12;
-	 HAL_GPIO_WritePin ( GPIOA , GPIO_Pin(num) ,
-	 GPIO_PIN_SET ) ;
+	 HAL_GPIO_WritePin ( GPIOA , GPIO_Pin(num) , 1) ;
 }
 /* USER CODE END 0 */
 
@@ -108,11 +106,16 @@ int main(void)
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
   int counter = 5;	//Count for 5 seconds
+
   int hour = 8;		//Init hour
+
   int min = 3;		//Init number of minute led
   int fiveMin = 5;	//Count for 5 minutes
+
   int sec = 0;		//Init number of second led
+
   clearAllClock();
+
   while (1)
   {
 	  if (counter <= 0) {	//After 5 secs, second led will change
