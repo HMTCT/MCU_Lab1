@@ -288,7 +288,7 @@ int main(void)
 	display7SEG(countdown--);
 	display7SEG_1(countdown1--);	//This function is similar to the
 									//previous display7SEG function
-	HAL_Delay (1000) ;
+	HAL_Delay (500) ;
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */

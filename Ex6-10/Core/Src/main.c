@@ -147,7 +147,7 @@ int main(void)
 	  setNumberOnClock(hour);
 
 	  counter--;
-	  HAL_Delay(200);
+	  HAL_Delay(50);
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */

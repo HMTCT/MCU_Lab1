@@ -3,6 +3,8 @@
 #except files
 !*.c
 !*.h
+!*.ioc
+!*.hex
 
 !*.gitignore
 
